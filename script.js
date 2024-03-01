@@ -5,41 +5,48 @@ function getComputerChoice () {
     return options[Math.floor(Math.random() * options.length)];
 }
 
+
 let computerChoice = getComputerChoice();
-let playerChoice = prompt("Choose one:\nRock\nPaper\nScissor");
+let playerChoice;
+let computerIndex = options.indexOf(computerChoice);
+let playerIndex;
+do{
+    playerChoice = prompt("Choose one:\n1. Rock\n2. Paper\n3. Scissor");
+    playerIndex = options.indexOf(playerChoice.toLowerCase());
+}
+while(playerIndex < 0);
+    
 
 function playRound(playerSelection, computerSelection) {
-    let user = options.indexOf(playerSelection.toLowerCase());
-    let bot = options.indexOf(computerSelection);
-    console.log("player: " + playerSelection + "\ncomputer: " + computerSelection);
-
-
-    let beats = {};
-
-    if (user == 0 && bot == 1)
+    // console.log("player: " + playerSelection + "\ncomputer: " + computerSelection);
+    if (playerSelection == 0 && computerSelection == 1)
     {
         console.log("You Lose! Paper beats Rock");
     }
-    else if (user == 1 && bot == 2)
+    else if (playerSelection == 1 && computerSelection == 2)
     {
         console.log("You Lose! Scissor beats Paper");
     }
-    else if (user == 2 && bot == 0)
+    else if (playerSelection == 2 && computerSelection == 0)
     {
         console.log("You Lose! Rock beats Scissor");
     }
-    else if (user == 1 && bot == 0)
+    else if (playerSelection == 1 && computerSelection == 0)
     {
         console.log("You Win! Paper beats Rock");
     }
-    else if (user == 2 && bot == 1)
+    else if (playerSelection == 2 && computerSelection == 1)
     {
         console.log("You Win! Scissor beats Paper");
     }
-    else if (user == 0 && bot == 1)
+    else if (playerSelection == 0 && computerSelection == 1)
     {
         console.log("You Win! Rock beats Scissor");
     }
+    else if (playerSelection == computerSelection)
+    {
+        console.log('Draw! ' + "you both chose " + options[playerSelection]);
+    }
 }
 
-playRound(playerChoice, computerChoice);
+playRound(playerIndex, computerIndex);
