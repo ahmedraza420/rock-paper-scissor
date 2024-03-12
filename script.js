@@ -42,7 +42,7 @@ function playRound(playerSelection, computerSelection) {
         roundWinnerScore[0]++;
         return "You Won the Round! Scissor beats Paper";
     }
-    else if (user == 0 && bot == 1)
+    else if (user == 0 && bot == 2)
     {
         roundWinnerScore[0]++;
         return "You Won the Round! Rock beats Scissor";
@@ -64,7 +64,7 @@ function playGame()
         resultString = playRound(playerChoice, computerChoice);
         while (resultString === undefined) 
         {
-            playerChoice = prompt("A problem occured.\nChoose again:\nRock\nPaper\nScissor");
+            playerChoice = prompt("Looks like you choose a wrong option.\nChoose again:\nRock\nPaper\nScissor");
             resultString = playRound(playerChoice, computerChoice);
         }
         console.log(resultString);
