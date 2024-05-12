@@ -1,4 +1,11 @@
+// Display of the Choices
+const playerOptions = document.querySelectorAll(".playerc");
+const computerOptions = document.querySelectorAll(".computerc");
 
+Array.from(computerOptions).forEach(item => item.style.opacity = "50%");
+
+
+// Game
 let options = ['rock', 'paper', 'scissor'];
 
 function getComputerChoice () {
@@ -8,6 +15,12 @@ function getComputerChoice () {
 let computerChoice;
 let playerChoice;
 let roundWinnerScore = [0, 0]; // index 0 for player, index 1 for bot
+
+const playerScore = document.querySelector("#playerScore");
+const computerScore = document.querySelector("#computerScore");
+
+
+
 
 function playRound(playerSelection, computerSelection) {
     let user = options.indexOf(playerSelection.toLowerCase());
@@ -71,6 +84,9 @@ function playGame()
 
     // }
     // console.log(roundWinnerScore[0] + " " + roundWinnerScore[1]);
+    playerScore.innerText = roundWinnerScore[0];
+    computerScore.innerText = roundWinnerScore[1];
+
     if (roundWinnerScore[0] > roundWinnerScore[1])
     {
         return "YAY! YOU HAVE WON THE GAME.";
