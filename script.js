@@ -57,19 +57,19 @@ function playRound(playerSelection, computerSelection) {
 function playGame()
 {
     let resultString;
-    for (let i = 0; i < 5; i++)
-    {
-        computerChoice = getComputerChoice();
-        playerChoice = prompt("Choose one:\nRock\nPaper\nScissor");
-        resultString = playRound(playerChoice, computerChoice);
-        while (resultString === undefined) 
-        {
-            playerChoice = prompt("Looks like you choose a wrong option.\nChoose again:\nRock\nPaper\nScissor");
-            resultString = playRound(playerChoice, computerChoice);
-        }
-        console.log(resultString);
+    // for (let i = 0; i < 5; i++)
+    // {
+    //     computerChoice = getComputerChoice();
+    //     playerChoice = prompt("Choose one:\nRock\nPaper\nScissor");
+    //     resultString = playRound(playerChoice, computerChoice);
+    //     while (resultString === undefined) 
+    //     {
+    //         playerChoice = prompt("Looks like you choose a wrong option.\nChoose again:\nRock\nPaper\nScissor");
+    //         resultString = playRound(playerChoice, computerChoice);
+    //     }
+    //     console.log(resultString);
 
-    }
+    // }
     // console.log(roundWinnerScore[0] + " " + roundWinnerScore[1]);
     if (roundWinnerScore[0] > roundWinnerScore[1])
     {
