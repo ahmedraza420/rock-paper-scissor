@@ -38,6 +38,16 @@ h1 {
     align-items: center;
 }
 
+#labels {
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 30px;
+
+}
+
 #score {
     padding: 30px 20px;
     display: flex;
