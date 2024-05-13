@@ -15,11 +15,12 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: #efefef;
+    gap: 10px;
 }
 
 header {
     height: 100px;
-    flex: 0 1 100px;
+    flex: 0 0 fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,6 +37,10 @@ h1 {
     justify-content: center;
     flex-flow: column nowrap;
     align-items: center;
+}
+
+#roundLabel {
+    margin: 2vh 0 0 0;
 }
 
 #labels {
@@ -57,35 +62,33 @@ h1 {
     font-weight: bolder;
 }
 
+#playerLabel, #computerLabel {
+    font-weight: 500;
+    width: 150px;
+    text-align: center;
+}
+
 #playArea {
     display: flex;
     flex-flow: row nowrap;
     gap: 10px;
-    max-height: 80%;
+    /* min-height: 100%; */
     min-width: 80%;
-    flex: 1 1 300px;
+    flex: 1 1 100%;
     justify-content: space-around;
     align-items: center;
 }
 
 #playerSide, #computerSide {
-    flex: 1 0 150px;
+    flex: 1 1 inherit;
     display: flex;
     flex-flow: column nowrap;
-    gap: 30px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-}
-/* 
-#playerSide {
-    justify-content: left;
-    align-items: start;
+    height: 100%;
 }
 
-#computerSide {
-    margin-left: auto;
-    align-items: end;
-} */
+
 
 .choice { 
     width: fit-content;

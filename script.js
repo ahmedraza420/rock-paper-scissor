@@ -5,6 +5,7 @@ const playerScore = document.querySelector("#playerScore");
 const computerScore = document.querySelector("#computerScore");
 const playerSide = document.querySelectorAll(".choice" && ".playerc");
 const computerSide = document.querySelector("#computerSide");
+const roundLabel = document.querySelector("#roundNumber");
 
 document.getElementById("year").innerHTML = new Date().getFullYear();
 
@@ -22,17 +23,21 @@ function getComputerChoice () {
 let computerChoice;
 let playerChoice;
 let roundWinnerScore = [0, 0]; // index 0 for player, index 1 for bot
-playerScore.innerText = roundWinnerScore[0];
-computerScore.innerText = roundWinnerScore[1];
+let roundNumber = 0;
+
 
 let playerOptionIds = ['playerRock', 'playerPaper', 'playerScissor'];
+// playerSide = Array.from(playerSide);
 
-Array.from(playerSide).forEach(item => {
-item.addEventListener('click', (e) => {
-    computerChoice = getComputerChoice();
+playerSide.forEach((item) => {
+    item.addEventListener('click', (e) => {
+        computerChoice = getComputerChoice();
     console.log(computerChoice + " " + playerOptionIds.indexOf(e.target.closest('.choice').getAttribute('id')));
-})
+        playRound(playerOptionIds.indexOf(e.target.closest('.choice').getAttribute('id')), computerChoice);
+    })
 });
+
+
 
 // playerSide.addEventListener('click', (e) => {
 //     computerChoice = getComputerChoice()    
@@ -43,51 +48,70 @@ item.addEventListener('click', (e) => {
 
 
 function playRound(playerSelection, computerSelection) {
-    let user = options.indexOf(playerSelection.toLowerCase());
-    let bot = options.indexOf(computerSelection);
-    // console.log("user: " + user + " bot: " + bot);
+    if (roundWinnerScore[0] < 5 && roundWinnerScore[1] < 5)
+        {
+            if (playerSelection == 0 && computerSelection == 1)
+                {
+                    roundWinnerScore[1]++;
+                    // return "You Lost the Round! Paper beats Rock";
+                }
+                else if (playerSelection == 1 && computerSelection == 2)
+                {
+                    roundWinnerScore[1]++;
+                    // return "You Lost the Round! Scissor beats Paper";
+                }
+                else if (playerSelection == 2 && computerSelection == 0)
+                {
+                    roundWinnerScore[1]++;
+                    // return "You Lost the Round! Rock beats Scissor";
+                }
+                else if (playerSelection == 1 && computerSelection == 0)
+                {
+                    roundWinnerScore[0]++;
+                    // return "You Won the Round! Paper beats Rock";
+                }
+                else if (playerSelection == 2 && computerSelection == 1)
+                {
+                    roundWinnerScore[0]++;
+                    // return "You Won the Round! Scissor beats Paper";
+                }
+                else if (playerSelection == 0 && computerSelection == 2)
+                {
+                    roundWinnerScore[0]++;
+                    // return "You Won the Round! Rock beats Scissor";
+                }
+                // else if (playerSelection == computerSelection)
+                // {
+
+                //     // return "Round Draw! You computerselectionh chose " + computerSelection;
+                // }
+                roundNumber++;
+        }
+    // console.log("playerselection: " + playerselection + " computerselection: " + computerselection);
     // console.log("player: " + playerSelection + "\ncomputer: " + computerSelection);
+    playerScore.innerText = roundWinnerScore[0];
+    computerScore.innerText = roundWinnerScore[1];
+    roundLabel.innerText = "Round " + roundNumber;
+    
+    if(roundWinnerScore[0] >= 5 || roundWinnerScore[1] >= 5)
+        {
+            // restartGame();
+            // alert('game restarted');
+        }
+    
+}
 
-
-
-    if (user == 0 && bot == 1)
-    {
-        roundWinnerScore[1]++;
-        return "You Lost the Round! Paper beats Rock";
-    }
-    else if (user == 1 && bot == 2)
-    {
-        roundWinnerScore[1]++;
-        return "You Lost the Round! Scissor beats Paper";
-    }
-    else if (user == 2 && bot == 0)
-    {
-        roundWinnerScore[1]++;
-        return "You Lost the Round! Rock beats Scissor";
-    }
-    else if (user == 1 && bot == 0)
-    {
-        roundWinnerScore[0]++;
-        return "You Won the Round! Paper beats Rock";
-    }
-    else if (user == 2 && bot == 1)
-    {
-        roundWinnerScore[0]++;
-        return "You Won the Round! Scissor beats Paper";
-    }
-    else if (user == 0 && bot == 2)
-    {
-        roundWinnerScore[0]++;
-        return "You Won the Round! Rock beats Scissor";
-    }
-    else if (user == bot)
-    {
-        return "Round Draw! You both chose " + computerSelection;
-    }
+function restartGame() {
+    roundWinnerScore[0] = 0;
+    roundWinnerScore[1] = 0;
+    roundNumber = 0;
+    // playerScore.innerText = roundWinnerScore[0];
+    // computerScore.innerText = roundWinnerScore[1];
+    // roundLabel.innerText = "Round " + roundNumber;
 }
 
 
-function startGame()
+function playGame()
 {
     let resultString;
     // for (let i = 0; i < 5; i++)
@@ -113,7 +137,7 @@ function startGame()
     }
     else if (roundWinnerScore[0] < roundWinnerScore[1])
     {
-        return "NOOB! YOU HAVE LOST THE GAME TO A SIMPLE BOT.";
+        return "NOOB! YOU HAVE LOST THE GAME TO A SIMPLE COMPUTERSELECTION.";
     }
     else {
         return "IT'S A DRAW!";
