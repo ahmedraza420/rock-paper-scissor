@@ -6,13 +6,16 @@ const computerScore = document.querySelector("#computerScore");
 const playerSide = document.querySelectorAll(".choice" && ".playerc");
 const computerSide = document.querySelector("#computerSide");
 const roundLabel = document.querySelector("#roundNumber");
-
+const gameOverModal = document.querySelector(".gameOverModal");
+const gameOverModalButton = document.querySelector("#gameOverModalButton");
 document.getElementById("year").innerHTML = new Date().getFullYear();
+
+// Game
+
 
 Array.from(computerOptions).forEach(item => item.style.opacity = "50%");
 
-
-// Game
+// gameOverModal.style.display = 'none';
 let options = ['rock', 'paper', 'scissor'];
 let totalOptions = 3;
 
@@ -29,7 +32,7 @@ let roundNumber = 0;
 let playerOptionIds = ['playerRock', 'playerPaper', 'playerScissor'];
 // playerSide = Array.from(playerSide);
 
-playerSide.forEach((item) => {
+Array.from(playerSide).forEach((item) => {
     item.addEventListener('click', (e) => {
         computerChoice = getComputerChoice();
     console.log(computerChoice + " " + playerOptionIds.indexOf(e.target.closest('.choice').getAttribute('id')));
@@ -38,6 +41,10 @@ playerSide.forEach((item) => {
 });
 
 
+gameOverModalButton.addEventListener('click', () => {
+    gameOverModal.style.display = 'none'
+    restartGame();
+});
 
 // playerSide.addEventListener('click', (e) => {
 //     computerChoice = getComputerChoice()    
@@ -97,6 +104,7 @@ function playRound(playerSelection, computerSelection) {
         {
             // restartGame();
             // alert('game restarted');
+            gameOverModal.style.display = 'flex';
         }
     
 }
@@ -105,9 +113,9 @@ function restartGame() {
     roundWinnerScore[0] = 0;
     roundWinnerScore[1] = 0;
     roundNumber = 0;
-    // playerScore.innerText = roundWinnerScore[0];
-    // computerScore.innerText = roundWinnerScore[1];
-    // roundLabel.innerText = "Round " + roundNumber;
+    playerScore.innerText = roundWinnerScore[0];
+    computerScore.innerText = roundWinnerScore[1];
+    roundLabel.innerText = "Round " + roundNumber;
 }
 
 
