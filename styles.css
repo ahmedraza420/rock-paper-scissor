@@ -14,8 +14,10 @@ body {
     flex-flow: column nowrap;
     height: 100vh;
     width: 100vw;
-    background-color: #efefef;
+    background-color: #dddddd;
     gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 header {
@@ -25,6 +27,7 @@ header {
     justify-content: center;
     align-items: center;
     font-size: 30px;
+    padding: 20px;
 }
 
 h1 {
@@ -39,62 +42,123 @@ h1 {
     align-items: center;
 }
 
-#roundLabel {
-    margin: 2vh 0 0 0;
-}
-
-#labels {
+#subMain {
+    flex: 0 0 100%;
     display: flex;
-    width: 100%;
-    flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-evenly;
-    font-size: 30px;
+    flex-flow: column nowrap;
+    width: 70vw;
+    height: 100%;;
+    gap: 10px;
+    justify-content: center;
 
 }
 
-#score {
-    padding: 30px 20px;
+#scoreLabels {
     display: flex;
     flex-flow: row nowrap;
-    gap: 30px;
-    font-size: 50px;
-    font-weight: bolder;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 60px;
+    color: #33333350;
+    flex: 0 1 20%;
+    width: 100%;
+    padding: 10px;
 }
 
-#playerLabel, #computerLabel {
-    font-weight: 500;
-    width: 150px;
+#playerScore, #computerScore {
+    width: 20%;
     text-align: center;
 }
 
-#playArea {
+#choiceLabels {
     display: flex;
     flex-flow: row nowrap;
-    gap: 10px;
-    /* min-height: 100%; */
-    min-width: 80%;
-    flex: 1 1 100%;
     justify-content: space-around;
     align-items: center;
+    max-height: fit-content;
+    /* flex: 1 1 fit-content; */
+    width: 100%;
 }
 
-#playerSide, #computerSide {
-    flex: 1 1 inherit;
+#playerLabel, #computerLabel {
+    font-size: 2rem;
+    height: fit-content;
+    width: 15vw;
+    text-align: center;
+    color: #00000090;
+}
+
+#choiceDisplay{
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1 1 50px;
+    width: 100%;
+    padding: 10px;
+}
+
+#playerChoice, #computerChoice {
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    color: #00000080
+}
+
+#playerOptions {
+    display: flex;
+    min-width: 100%;
+    flex-flow: row nowrap;
+    gap : 10px;
     justify-content: space-evenly;
     align-items: center;
-    height: 100%;
+    flex: 1 1 auto;
+}
+
+#playerOptions > div {
+    background-color: #fafafa;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
+    height: 90%;
+    box-shadow: 2px 1px 4px #11111150;
+    aspect-ratio: 1 / 1;
+    flex: 0 1 auto;
+}
+
+.choiceIcons {
+    flex: 1 1 auto;
+    height: 70%;
+    width: 70%;
+}
+
+.overlay {
+    display: none;
+}
+
+#overlay {
+    position: fixed;
+    background-color: #00000050;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .gameOverModal {
-    position: fixed;
-    display: none;
+    display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
-    z-index: 2;
     background-color: #333333;
     padding: 1.5%;  
     width: 20vw;
@@ -102,6 +166,7 @@ h1 {
     aspect-ratio: 5/3;
     border-radius: 20px;
     box-shadow: 7px 7px 3px #33333366;
+    align-self: center;
 
 }
 
@@ -119,28 +184,6 @@ h1 {
     box-shadow: 0px 0px 5px #232323;
 }
 
-.choice { 
-    width: fit-content;
-    height: fit-content;
-}
-
-#playerSide > div:hover {
-    filter: drop-shadow(-5px -8px 3px rgba(0, 0, 0, 0.4));
-    transition: filter .2s;
-}
-
-#playerSide > div:active {
-    filter: drop-shadow(-5px -8px 3px rgba(0, 0, 0, 0.7));
-    transition: rotate filter 0.1s;
-}
-
-.playerc {
-    transform: rotate(90deg) scaleX(-1);
-}
-
-.computerc {
-    transform: rotate(270deg);
-}
 
 footer {
     display: flex;
