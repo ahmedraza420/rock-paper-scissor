@@ -11,17 +11,30 @@ const gameOverModalButton = document.querySelector("#gameOverModalButton");
 const playerChoiceDisplay = document.querySelector('#playerChoice');
 const computerChoiceDisplay = document.querySelector('#computerChoice');
 document.getElementById("year").innerHTML = new Date().getFullYear();
-const rockSign = `<svg id='1' class="choiceIcons" fill="#000000" height="100px" width="100px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 427.183 427.183" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M366.214,129.976h-21.621V57.313c0-24.708-20.102-44.809-44.81-44.809c-13.976,0-26.475,6.435-34.698,16.493 C258.68,12.07,242.31,0,223.167,0c-19.277,0-35.747,12.236-42.058,29.348c-8.225-9.96-20.664-16.318-34.56-16.318 c-24.708,0-44.809,20.101-44.809,44.809v0.563c-8.125-8.198-19.383-13.285-31.81-13.285c-24.708,0-44.809,20.101-44.809,44.809 v139.655c0,55.446,18.966,109.714,53.454,153.087v38.013c0,3.59,2.91,6.5,6.5,6.5s6.5-2.91,6.5-6.5v-40.3 c0-1.491-0.513-2.936-1.451-4.094c-33.534-41.359-52.003-93.46-52.003-146.707v-33.708c8.125,8.198,19.382,13.285,31.809,13.285 c16.71,0,31.303-9.2,39.006-22.795c7.992,12.324,21.861,20.5,37.612,20.5c16.212,0,30.44-8.654,38.308-21.585 c7.869,12.929,22.096,21.581,38.307,21.581c4.686,0,9.243-0.723,13.62-2.124c8.616,12.478,23.009,20.676,39.287,20.676h13.992v2.058 h-13c-47.421,0-86,38.58-86,86c0,3.59,2.91,6.5,6.5,6.5s6.5-2.91,6.5-6.5c0-40.252,32.748-73,73-73h19.5c3.59,0,6.5-2.91,6.5-6.5 v-8.558h39.326c3.59,0,6.5-2.91,6.5-6.5s-2.91-6.5-6.5-6.5h-66.318c-19.144,0-34.719-15.575-34.719-34.718 s15.575-34.718,34.719-34.718h90.143c12.598,0,22.846,10.249,22.846,22.846v90.861c0,36.452-17.734,70.829-47.439,91.958 l-0.291,0.207c-21.61,15.372-34.512,40.38-34.512,66.899c0,3.59,2.91,6.5,6.5,6.5s6.5-2.91,6.5-6.5 c0-22.319,10.858-43.368,29.047-56.306l0.291-0.207c33.127-23.563,52.904-61.899,52.904-102.551v-90.861 C402.06,146.056,385.98,129.976,366.214,129.976z M101.741,164.35c0,17.54-14.27,31.809-31.81,31.809 c-17.539,0-31.809-14.27-31.809-31.809V89.927c0-17.54,14.27-31.809,31.809-31.809c17.54,0,31.81,14.269,31.81,31.809V164.35z M146.549,193.864c-17.539,0-31.809-14.269-31.809-31.809V57.84c0-17.54,14.27-31.809,31.809-31.809S178.358,40.3,178.358,57.84 v0.001h-0.004v104.21c0,0.027,0.002,0.053,0.002,0.079C178.315,179.635,164.063,193.864,146.549,193.864z M228.353,177.694 c0,5.322,0.889,10.438,2.504,15.222c-2.494,0.62-5.064,0.945-7.693,0.945c-17.513,0-31.765-14.227-31.809-31.731 c0-0.025,0.002-0.05,0.002-0.075V44.809c0-17.54,14.27-31.809,31.809-31.809s31.809,14.269,31.809,31.809v90.098 C239.218,142.708,228.353,158.953,228.353,177.694z M267.975,130.677V57.313c0-17.54,14.27-31.809,31.81-31.809 c17.539,0,31.809,14.269,31.809,31.809v72.663h-55.521C273.311,129.976,270.609,130.224,267.975,130.677z"></path> </g></svg>`;
-const paperSign = `<svg id='2' class="choiceIcons" fill="#000000" height="100px" width="100px" version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 421.862 421.862" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M317.59,190.935c-8.43,0-16.176,2.978-22.248,7.933V66.745c0-18.287-14.877-33.165-33.165-33.165 c-7.582,0-14.573,2.563-20.165,6.86v-7.276C242.013,14.878,227.136,0,208.849,0s-33.165,14.878-33.165,33.165V48.44 c-5.592-4.297-12.583-6.86-20.165-6.86c-18.287,0-33.165,14.878-33.165,33.165v27.695c-5.592-4.297-12.583-6.86-20.165-6.86 c-18.287,0-33.165,14.878-33.165,33.165v181.651c0,39.583,13.729,78.314,38.658,109.059c1.285,1.584,3.161,2.407,5.053,2.406 c1.438,0,2.886-0.475,4.09-1.451c2.789-2.261,3.216-6.354,0.955-9.143c-23.057-28.437-35.755-64.261-35.755-100.872V128.745 c0-11.119,9.046-20.165,20.165-20.165c11.119,0,20.165,9.046,20.165,20.165v116.706c0,3.59,2.91,6.5,6.5,6.5s6.5-2.91,6.5-6.5 V74.745c0-11.119,9.046-20.165,20.165-20.165c11.119,0,20.165,9.046,20.165,20.165v159.544c0,3.59,2.91,6.5,6.5,6.5 s6.5-2.91,6.5-6.5V33.165c0-11.119,9.046-20.165,20.165-20.165c11.119,0,20.165,9.046,20.165,20.165V242.97c0,3.59,2.91,6.5,6.5,6.5 s6.5-2.91,6.5-6.5V66.745c0-11.119,9.046-20.165,20.165-20.165c11.119,0,20.165,9.046,20.165,20.165v233.359 c0,3.59,2.91,6.5,6.5,6.5s6.5-2.91,6.5-6.5v-73.922c0-12.267,9.98-22.247,22.248-22.247s22.247,9.98,22.247,22.247v93.109 c0,20.893-7.246,41.338-20.402,57.568s-31.659,27.551-52.1,31.875c-3.512,0.743-5.757,4.192-5.014,7.705 c0.647,3.059,3.347,5.156,6.353,5.156c0.445,0,0.898-0.046,1.352-0.142c23.348-4.939,44.481-17.869,59.508-36.407 c15.027-18.539,23.303-41.891,23.303-65.754v-93.109C352.837,206.747,337.026,190.935,317.59,190.935z"></path> </g></svg>`;
-const ScissorSign = `<svg id= '3' class="choiceIcons" style= "transform: rotate(360deg) scaleX(-1)" fill="#000000" height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g transform="translate(0 1)"> <g> <path d="M394.33,248.712c5.389-20.66-5.389-42.218-26.049-49.404c-8.084-2.695-17.965-2.695-26.049,0 c0-16.168-10.779-31.439-26.947-36.828l-1.797-0.898c-9.881-2.695-20.66-2.695-29.642,1.797l20.66-110.484 c1.797-12.575,0-25.151-6.288-35.032C290.133,6.186,278.456-1,265.881-1c-22.456,0-37.726,21.558-41.319,44.014l-17.965,115.874 L188.632,51.098c-8.982-37.726-28.744-43.116-39.523-43.116c-12.575,0-25.151,7.186-33.235,18.863 c-6.288,9.881-8.982,22.456-7.186,35.032l26.049,172.463l11.677,56.589l-8.084,6.288c-0.356,0.214-0.674,0.457-0.974,0.712 c-26.918,19.547-29.566,40.054-29.566,68.452v0.898c0,37.726,26.049,66.47,35.93,75.453v32.337c0,19.761,16.168,35.93,35.93,35.93 h162.582c19.761,0,35.032-15.27,35.032-35.93v-33.235c26.049-35.032,26.947-47.607,26.947-110.484 C404.211,298.116,395.228,260.389,394.33,248.712z M284.744,273.863c1.499-3.56,2.325-7.355,2.576-11.237 c1.093-9.441-1.223-18.6-6.232-25.881c-3.023-5.45-6.99-10.326-11.614-14.083l9.881-28.744 c4.491-11.677,16.168-17.067,27.846-13.474l1.797,0.898c4.027,1.342,7.55,3.689,10.199,7.037 c3.49,5.388,4.474,12.194,2.376,19.012l-6.288,17.965c-0.269,0.806-0.426,1.589-0.502,2.349l-30.655,88.559 c-5.495,8.362-15.456,11.867-25.432,8.797l-1.797-0.898c-0.898,0-2.695-0.898-3.593-1.797 C268.575,302.607,280.253,285.54,284.744,273.863z M300.014,325.063l0.273-0.79c1.281-2.024,2.399-4.16,3.32-6.396l32.063-92.182 c0.144-0.178,0.286-0.358,0.435-0.533c0.714-0.831,1.496-1.617,2.333-2.351c0.837-0.734,1.729-1.417,2.664-2.043 c0.936-0.626,1.914-1.194,2.925-1.699c5.389-2.695,11.677-2.695,17.067-0.898s9.881,6.288,12.575,11.677 c2.695,5.389,2.695,11.677,0.898,17.067l-32.337,93.418c-1.797,5.39-6.288,9.881-11.677,12.576 c-5.389,2.695-11.677,2.695-17.067,0.898s-9.881-6.288-12.575-11.677C298.218,336.74,298.218,330.453,300.014,325.063z M152.702,231.646L126.653,59.182c-0.898-8.982,0-16.168,4.491-22.456s11.677-10.779,17.965-10.779 c12.575,0,18.863,16.168,21.558,28.744l26.947,161.684c0.898,3.593,4.491,7.186,8.982,7.186s8.084-2.695,8.982-7.186 l26.947-170.667c2.695-14.372,11.677-28.744,23.354-28.744c6.288,0,12.575,3.593,16.168,9.881 c3.593,6.288,5.389,14.372,3.593,22.456l-27.846,148.211c-0.317,1.587-0.178,3.17,0.322,4.598l-7.411,21.174 c-8.081,0.814-17.989,4.121-29.739,11.955c-11.942,7.962-36.135,26.214-59.187,43.899L152.702,231.646z M361.095,433.751 c-1.796,1.797-1.796,3.593-1.796,6.288v35.032c0,9.881-7.186,17.965-17.067,17.965H179.649c-9.881,0-17.965-8.084-17.965-17.965 v-35.93c0-2.695-0.898-5.389-3.593-7.186c0,0-31.439-26.947-32.337-63.775c0-28.744,1.797-41.319,23.354-56.589 c0.898,0,0.898,0,0.898,0l8.312-7.034c28.39-21.649,59.578-45.143,72.53-54.047c14.372-9.881,26.049-11.677,33.235-6.288 c5.389,4.491,7.186,14.372,4.491,22.456c-0.537,1.289-1.197,2.701-1.96,4.211c-15.083,29.039-68.226,73.464-88.763,82.021 c-4.491,1.796-6.288,7.186-4.491,11.677c0.898,3.593,4.491,5.389,8.084,5.389c0.898,0,1.797,0,3.593-0.898 c11.717-5.208,32.24-19.851,51.844-37.445c4.192,4.502,9.407,7.363,14.626,9.599l1.797,0.898 c3.593,0.898,8.084,1.797,12.575,1.797c5.434,0,10.765-1.222,15.689-3.419c0.672,3.288,1.737,6.543,3.174,9.706 c5.389,9.881,13.474,17.067,23.354,20.66c4.491,0.898,8.982,1.797,13.474,1.797c6.288,0,12.576-1.796,17.067-3.593 c9.881-5.389,17.067-13.474,20.66-23.354l21.881-63.213c2.64,14.599,5.066,32.465,5.066,48.841 C386.246,394.228,385.347,401.414,361.095,433.751z"></path> </g> </g> </g></svg>`;
+const containerCard = document.querySelectorAll(".containerCard");
+const choiceIcons = document.querySelectorAll(".choiceIcon");
+const rockDiv = document.querySelector("#rock");
+const paperDiv = document.querySelector("#paper");
+const scissorDiv = document.querySelector("#scissor");
+const rockSign = choiceIcons[0];
+const paperSign = choiceIcons[1];
+const scissorSign = choiceIcons[2];
+const info = document.querySelector("#info");
 const gameOverText = document.querySelector("#gameOverText");
+const lightIcon = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" fill= "#111720" width="30px" height="30px" viewBox="0 0 256 256" xml:space="preserve"><defs></defs><g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" ><path d="M 45 71.188 c -14.44 0 -26.188 -11.748 -26.188 -26.188 c 0 -14.44 11.748 -26.188 26.188 -26.188 c 14.439 0 26.188 11.748 26.188 26.188 c 0 4.725 -1.272 9.355 -3.679 13.392 C 62.804 66.284 54.179 71.188 45 71.188 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 45 14.864 c -1.104 0 -2 -0.896 -2 -2 V 2 c 0 -1.104 0.896 -2 2 -2 s 2 0.896 2 2 v 10.864 C 47 13.968 46.104 14.864 45 14.864 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 45 90 c -1.104 0 -2 -0.896 -2 -2 V 77.137 c 0 -1.104 0.896 -2 2 -2 s 2 0.896 2 2 V 88 C 47 89.104 46.104 90 45 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 12.864 47 H 2 c -1.104 0 -2 -0.896 -2 -2 s 0.896 -2 2 -2 h 10.864 c 1.104 0 2 0.896 2 2 S 13.968 47 12.864 47 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 88 47 H 77.137 c -1.104 0 -2 -0.896 -2 -2 s 0.896 -2 2 -2 H 88 c 1.104 0 2 0.896 2 2 S 89.104 47 88 47 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 67.724 24.276 c -0.512 0 -1.023 -0.195 -1.414 -0.586 c -0.781 -0.781 -0.781 -2.047 0 -2.828 l 7.682 -7.682 c 0.781 -0.781 2.047 -0.781 2.828 0 c 0.781 0.781 0.781 2.047 0 2.828 l -7.682 7.682 C 68.747 24.081 68.235 24.276 67.724 24.276 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 14.594 77.405 c -0.512 0 -1.024 -0.195 -1.414 -0.586 c -0.781 -0.781 -0.781 -2.047 0 -2.828 l 7.682 -7.682 c 0.781 -0.781 2.048 -0.781 2.828 0 c 0.781 0.781 0.781 2.047 0 2.828 l -7.682 7.682 C 15.618 77.21 15.106 77.405 14.594 77.405 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 22.276 24.276 c -0.512 0 -1.024 -0.195 -1.414 -0.586 l -7.682 -7.682 c -0.781 -0.781 -0.781 -2.047 0 -2.828 c 0.78 -0.781 2.048 -0.781 2.828 0 l 7.682 7.682 c 0.781 0.781 0.781 2.047 0 2.828 C 23.3 24.081 22.788 24.276 22.276 24.276 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 75.405 77.405 c -0.512 0 -1.023 -0.195 -1.414 -0.586 l -7.682 -7.682 c -0.781 -0.781 -0.781 -2.047 0 -2.828 s 2.047 -0.781 2.828 0 l 7.682 7.682 c 0.781 0.781 0.781 2.047 0 2.828 C 76.429 77.21 75.917 77.405 75.405 77.405 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 32.703 17.311 c -0.785 0 -1.53 -0.465 -1.849 -1.235 L 26.697 6.039 c -0.423 -1.021 0.062 -2.19 1.082 -2.613 c 1.022 -0.422 2.19 0.062 2.613 1.082 l 4.158 10.037 c 0.423 1.021 -0.062 2.19 -1.082 2.613 C 33.217 17.261 32.958 17.311 32.703 17.311 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 61.456 86.728 c -0.785 0 -1.529 -0.466 -1.849 -1.235 L 55.45 75.456 c -0.423 -1.021 0.062 -2.19 1.082 -2.613 c 1.023 -0.422 2.19 0.063 2.613 1.082 l 4.157 10.036 c 0.423 1.021 -0.062 2.19 -1.082 2.613 C 61.97 86.678 61.711 86.728 61.456 86.728 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 5.274 63.456 c -0.785 0 -1.53 -0.466 -1.849 -1.235 c -0.423 -1.021 0.062 -2.19 1.083 -2.613 l 10.037 -4.157 c 1.021 -0.423 2.19 0.063 2.613 1.082 c 0.423 1.021 -0.062 2.19 -1.083 2.613 L 6.038 63.303 C 5.788 63.406 5.529 63.456 5.274 63.456 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 74.691 34.703 c -0.785 0 -1.529 -0.465 -1.849 -1.235 c -0.423 -1.021 0.062 -2.19 1.082 -2.613 l 10.036 -4.158 c 1.021 -0.422 2.189 0.062 2.613 1.082 c 0.423 1.021 -0.062 2.19 -1.082 2.613 L 75.456 34.55 C 75.206 34.653 74.946 34.703 74.691 34.703 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 57.297 17.311 c -0.255 0 -0.514 -0.049 -0.765 -0.153 c -1.021 -0.422 -1.505 -1.592 -1.082 -2.613 l 4.157 -10.037 c 0.423 -1.021 1.588 -1.506 2.613 -1.083 c 1.021 0.422 1.505 1.592 1.082 2.613 l -4.157 10.037 C 58.826 16.846 58.082 17.311 57.297 17.311 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 28.543 86.728 c -0.255 0 -0.514 -0.05 -0.765 -0.153 c -1.021 -0.423 -1.505 -1.593 -1.082 -2.613 l 4.158 -10.036 c 0.422 -1.02 1.591 -1.504 2.613 -1.082 c 1.021 0.423 1.505 1.593 1.082 2.613 l -4.158 10.036 C 30.073 86.262 29.329 86.728 28.543 86.728 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 15.309 34.703 c -0.255 0 -0.514 -0.049 -0.765 -0.153 L 4.507 30.392 c -1.02 -0.423 -1.505 -1.593 -1.082 -2.613 c 0.422 -1.02 1.59 -1.506 2.613 -1.082 l 10.037 4.158 c 1.02 0.423 1.505 1.593 1.082 2.613 C 16.839 34.238 16.094 34.703 15.309 34.703 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 84.726 63.456 c -0.255 0 -0.514 -0.05 -0.765 -0.153 l -10.036 -4.157 c -1.021 -0.423 -1.505 -1.593 -1.082 -2.613 c 0.423 -1.02 1.589 -1.505 2.613 -1.082 l 10.036 4.157 c 1.021 0.423 1.505 1.593 1.082 2.613 C 86.255 62.99 85.511 63.456 84.726 63.456 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(207,213,221); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /></g></svg>`;
+const darkIcon = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" fill= "#373b41" width="30px" height="30px" viewBox="0 0 256 256" xml:space="preserve"><defs></defs><g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" ><path d="M 46.607 90 c -12.452 0 -24.159 -4.849 -32.964 -13.654 c -18.176 -18.177 -18.176 -47.752 0 -65.928 c 4.469 -4.469 9.687 -7.925 15.507 -10.273 c 0.813 -0.327 1.742 -0.089 2.295 0.588 C 32 1.41 32.051 2.368 31.57 3.099 c -10.35 15.731 -8.183 36.83 5.154 50.167 l 0 0 c 13.338 13.336 34.437 15.503 50.166 5.153 c 0.73 -0.482 1.69 -0.431 2.366 0.123 c 0.678 0.555 0.915 1.484 0.588 2.296 c -2.347 5.82 -5.803 11.038 -10.272 15.508 C 70.766 85.151 59.059 90 46.607 90 z M 25.065 6.595 c -3.118 1.827 -5.994 4.051 -8.594 6.651 c -16.616 16.617 -16.616 43.654 0 60.271 C 24.521 81.567 35.223 86 46.607 86 s 22.086 -4.433 30.136 -12.482 c 2.6 -2.601 4.824 -5.477 6.651 -8.595 c -16.447 7.582 -36.384 4.285 -49.499 -8.829 l 0 0 C 20.781 42.979 17.484 23.041 25.065 6.595 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /></g></svg>`;
+const modeToggle = document.querySelector("#modeToggle");
+const themeElements = document.querySelectorAll(".light");
 
 // Game
 let options = ['rock', 'paper', 'scissor'];
 let totalOptions = options.length;
 
-overlay.style.display = 'none';
+// initial theme
+let toggle = false;
 
+
+// overlay.setAttribute('.overlayHide');
 function getComputerChoice () {
     return Math.floor(Math.random() * totalOptions);
 }
@@ -49,66 +62,67 @@ function playRound(playerSelection, computerSelection) {
             if (playerSelection == 0 && computerSelection == 1)
                 {
                     roundWinnerScore[1]++;
-                    // return "You Lost the Round! Paper beats Rock";
+                    info.innerText = callRoundWinner(computerSelection, playerSelection);
                 }
                 else if (playerSelection == 1 && computerSelection == 2)
                 {
                     roundWinnerScore[1]++;
-                    // return "You Lost the Round! Scissor beats Paper";
+                    info.innerText = callRoundWinner(computerSelection, playerSelection);
                 }
                 else if (playerSelection == 2 && computerSelection == 0)
                 {
                     roundWinnerScore[1]++;
-                    // return "You Lost the Round! Rock beats Scissor";
+                    info.innerText = callRoundWinner(computerSelection, playerSelection);
                 }
                 else if (playerSelection == 1 && computerSelection == 0)
                     {
                     roundWinnerScore[0]++;
-                    // return "You Won the Round! Paper beats Rock";
+                    info.innerText = callRoundWinner(playerSelection, computerSelection);
                 }
                 else if (playerSelection == 2 && computerSelection == 1)
                 {
                     roundWinnerScore[0]++;
-                    // return "You Won the Round! Scissor beats Paper";
+                    info.innerText = callRoundWinner(playerSelection, computerSelection);
                 }
                 else if (playerSelection == 0 && computerSelection == 2)
                 {
                     roundWinnerScore[0]++;
-                    // return "You Won the Round! Rock beats Scissor";
+                    info.innerText = callRoundWinner(playerSelection, computerSelection);
                 }
-                // else if (playerSelection == computerSelection)
-                // {
-
-                //     // return "Round Draw! You computerselectionh chose " + computerSelection;
-                // }
+                else if (playerSelection == computerSelection)
+                {
+                    info.innerText = callRoundWinner(playerSelection, computerSelection);
+                }
                 roundNumber++;
 
 
                 switch(playerSelection)
                 {
                     case 0:
-                        playerChoiceDisplay.innerHTML = rockSign;
+                        playerChoiceDisplay.innerHTML = rockSign.outerHTML;
                         break;
                     case 1:
-                        playerChoiceDisplay.innerHTML = paperSign;
+                        playerChoiceDisplay.innerHTML = paperSign.outerHTML;
                         break;
                     case 2:
-                        playerChoiceDisplay.innerHTML = ScissorSign;
+                        playerChoiceDisplay.innerHTML = scissorSign.outerHTML;
                         break;
                 }
 
                 switch(computerSelection)
                 {
                     case 0:
-                        computerChoiceDisplay.innerHTML = rockSign;
+                        computerChoiceDisplay.innerHTML = rockSign.outerHTML;
                         break;
                     case 1:
-                        computerChoiceDisplay.innerHTML = paperSign;
+                        computerChoiceDisplay.innerHTML = paperSign.outerHTML;
                         break;
                     case 2:
-                        computerChoiceDisplay.innerHTML = ScissorSign;
+                        computerChoiceDisplay.innerHTML = scissorSign.outerHTML;
                         break;
                 }
+
+                // const compDisTimeout = setTimeout(() => {computerChoiceDisplay.innerHTML = ''; playerChoiceDisplay.innerHTML = ''}, 3000);
         }
         
         
@@ -121,8 +135,9 @@ function playRound(playerSelection, computerSelection) {
             // restartGame();
             // alert('game restarted');
             // gameOverModal.style.display = 'flex';
-            overlay.style.display = 'flex';
-
+            // overlay.style.display = 'flex';
+            // overlay.setAttribute('.overlayShow');
+            overlayToggle();
             if  (roundWinnerScore[0] > roundWinnerScore[1])
                 {
                     gameOverText.innerText = "You Won";
@@ -135,17 +150,23 @@ function playRound(playerSelection, computerSelection) {
         
     }
 
+function callRoundWinner(roundWinner, roundLoser)
+{
+    if (roundWinner == roundLoser) return `It's a Tie!`;
+    else return `${options[roundWinner][0].toUpperCase() + options[roundWinner].slice(1)} beats ${options[roundLoser][0].toUpperCase() + options[roundLoser].slice(1)}`;
+}
+
 function restartGame() {
     roundWinnerScore[0] = 0;
     roundWinnerScore[1] = 0;
     roundNumber = 0;
-    playerScore.innerText = '?';
-    computerScore.innerText = '?';
+    playerScore.innerText = '0';
+    computerScore.innerText = '0';
     roundLabel.innerText = 'Start';
-    computerChoiceDisplay.innerHTML = '?';
-    playerChoiceDisplay.innerHTML = '?';
+    computerChoiceDisplay.innerHTML = '';
+    playerChoiceDisplay.innerHTML = '';
+    info.innerText = 'Choose an option';
 }
-
 
 function playGame()
 {
@@ -180,21 +201,78 @@ function playGame()
     }
 }
 
-
-// window.addEventListener('click', (e) => {
-//     // restartGame();
-//     // if(e.target == overlay) overlay.style.display = 'none';
-//     console.log(e);
-//     if(e.target == overlay || e.target == gameOverModalButton) overlay.style.display == 'none'; 
-// });
+function overlayToggle() {
+    if(overlay.classList.contains('overlayShow')) 
+        {
+            overlay.classList.remove('overlayShow');
+            overlay.classList.add('overlayHide');
+        }
+    else if(overlay.classList.contains('overlayHide'))
+        {
+            overlay.classList.remove('overlayHide');
+            overlay.classList.add('overlayShow');
+        }
+    else
+        {
+            overlay.classList.add('overlayShow');
+        }
+}
 
 overlay.addEventListener('click', (e) => {
-    if (e.target == overlay) overlay.style.display = 'none';
-    restartGame();
+    if (e.target == overlay && e.target != gameOverModal) 
+        {
+            overlayToggle();//overlay.style.display = 'none';
+            restartGame();
+        }
 });
 
 gameOverModalButton.addEventListener('click', (e) => {
     // gameOverModal.style.display = 'none'
-    overlay.style.display = 'none';
+    // overlay.style.display = 'none';
+    if (e.target == gameOverModalButton)
+        {
+    overlayToggle();
     restartGame();
+        }
+});
+
+// Dark Mode
+modeToggle.addEventListener('click', ()=> {
+    if (toggle == false)
+        {
+            modeToggle.innerHTML = lightIcon;
+            toggle = true;
+            containerCard.forEach(element => {
+                element.classList.remove("lightContainer");
+                element.classList.add('darkContainer');
+            });
+            choiceIcons.forEach(element => {
+                element.classList.remove('svgLight');
+                element.classList.add('svgDark');
+            });
+            themeElements.forEach(element => {
+                element.classList.remove("light");
+                element.classList.add("dark");
+            });
+            modeToggle.style.border = '3px solid #cccccc';
+        }
+    else 
+    {
+        // console.log('dark mode right now');
+        modeToggle.innerHTML = darkIcon;
+        toggle = false;
+        containerCard.forEach(element => {
+            element.classList.remove("darkContainer");
+            element.classList.add('lightContainer');
+        });
+        choiceIcons.forEach(element => {
+            element.classList.remove('svgDark');
+            element.classList.add('svgLight');
+        });
+            themeElements.forEach(element => {
+                element.classList.remove("dark");
+                element.classList.add("light");
+            });
+            modeToggle.style.border = '3px solid #111720';
+    }
 });
