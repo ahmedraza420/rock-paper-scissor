@@ -14,15 +14,19 @@ body {
     flex-flow: column nowrap;
     height: 100vh;
     width: 100vw;
-    background-color: #dddddd;
+    background-color: #FFFBDA;
     gap: 10px;
     justify-content: space-between;
     align-items: center;
     overflow: auto;
 }
 
+a, a:visited {
+    color: inherit;
+}
+
 header {
-    height: 20vh;
+    height: 10vh;
     flex: 0 0 auto;
     display: flex;
     justify-content: space-around;
@@ -46,46 +50,47 @@ h1 {
     text-align: center;
 } */
 #alignmentDiv, #modeToggle {
-    min-width: 2vw;
+    /* min-width: calc(1vw); */
+    min-width: 20px;
     display: flex;
     /* min-height: 10vh; */
     aspect-ratio: 1 / 1;
-    width : 5vh;
+    width : 2.5vw;
     font-size: calc(1vw + 0.25vh);
     align-items: center;
     justify-content: center;    
 }
 
-#modeToggle {
+/* #modeToggle {
     border: 3px solid #111720;
-    border-radius: 1.5vh;
-}
+} */
 
 
 #main {
-    flex: 1 1 100px;
+    flex: 1 0 100px;
     display: flex;
     justify-content: center;
     flex-flow: column nowrap;
     align-items: center;
+    min-width: fit-content;
 }
 
 .light {
     color: #18202c;
-    background-color: #dddddd;
+    background-color: #FFFBDA;
 }
 
 .dark {
-    color: #ffffff;
+    color: #F5E8C7;
     background-color: #111720;
 }
 
 .lightContainer {
-    color: #fafafa;
+    color: #F5E8C7;
 }
 
 .darkContainer {
-    color: #aaaaaa;
+    color: #F5E8C7;
 }
 
 #subMain {
@@ -97,7 +102,7 @@ h1 {
     gap: 10px;
     justify-content: flex-start;
     align-items: center;
-    min-width: 200px;
+    min-width: fit-content;
     overflow:visible;
 }
 
@@ -182,17 +187,18 @@ h1 {
     justify-content: center;
     padding: 1%;
     /* background-color: #fafafa; */
-    filter: contrast(50%) brightness(70%);
+    filter:hue-rotate(15deg) opacity(50%);
     border-radius: 6%;
     max-width: calc(20vh + 2%);
 }
 
+
 .lightContainer {
-    background-color: #fafafa;
+    background-color: #FFEC9E;
 }
 
 .darkContainer {
-    background-color: #1f2939;
+    background-color: #1B1A55;
 }
 
 #playerChoice, #computerChoice {
@@ -204,7 +210,7 @@ h1 {
     flex: 0 1 auto;
     aspect-ratio: 1 / 1;
     /* height: 20vh; */
-    width: 20vw;
+    width: 15vw;
     min-width: 100px;
     max-height: 20vh;
     max-width: 20vh;
@@ -212,7 +218,7 @@ h1 {
 
 #playerOptions {
     display: flex;
-    min-width: 100%;
+    min-width: fit-content;
     flex-flow: row nowrap;
     gap : 10px;
     padding: 0 18%;
@@ -231,20 +237,24 @@ h1 {
     border-radius: 10%;
     /* height: 90%; */
     box-shadow: 2px 1px 4px #11111150;
+    filter: brightness(100%) opacity(1) contrast(100%);
     aspect-ratio: 1 / 1;
-    flex: 0 1 60%;
-    max-height: 200px;
-    max-width: 200px;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    flex: 0 1 30%;
+    max-height: 250px;
+    max-width: 250px;
+    min-height: 90px;
+    min-width: 90px;
+    transition: filter 0.3s, box-shadow 0.3s;
 }
 
-#playerOptions > div:hover {
+#playerOptions > div.lightContainer:hover {
     box-shadow: 5px 4px 5px #11111150; 
-    background-color: #fcfcfc;
+    filter: brightness(105%);
+    /* background-color: #fcfcfc; */
     transition: 0.3s;
 }
 
-#playerOptions > div:active {
+#playerOptions > div.lightContainer:active {
     box-shadow: 1px 0 2px #11111150;
     filter: brightness(96%);
     transition: 0.15s;
@@ -252,23 +262,25 @@ h1 {
 
 #playerOptions > div.darkContainer:hover {
     box-shadow: 5px 4px 5px #000011;
-    background-color: #232e41;
+    /* background-color: #232e41; */
+    filter: brightness(130%);
     transition: 0.3s;
 }
 
 #playerOptions > div.darkContainer:active {
     box-sizing: 1px 0 2px #000011;
-    background-color: #19212e;
+    /* background-color: #19212e; */
+    filter: brightness(70%);
     transition: 0.15s;
-
+    
 }
 
 .svgLight {
-    fill: #080b0f;
+    fill: #092635;
 }
 
 .svgDark {
-    fill: #eeeeee;
+    fill: #9EC8B9;
 }
 
 .choiceIcon {
@@ -285,12 +297,21 @@ footer {
     justify-content: center;
     align-items: center;
     height: 50px;
+    width: 100%;
+    font-size: calc(0.5vw + 1vh);
 }
 
 #copyRight, #copyRight > a {
     display: flex;
     flex-flow: row nowrap;
     gap: 10px;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon, .icon {
+    height: calc(0.5vw + 1vh);
 }
 
 .overlayHide {
@@ -314,7 +335,7 @@ footer {
     /* display: flex; */
     justify-content: center;
     align-items: center;
-
+    
 }
 
 .gameOverModal {
@@ -361,4 +382,10 @@ footer {
     box-shadow: 0px 1px 2px #232323;
     transition: 0.3s;
 }
+
+.displayCard {
+    /* background-color: #1f2939; */
+    color: #F5E8C7;
+}
+
 
