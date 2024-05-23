@@ -194,7 +194,7 @@ h1 {
 
 
 .lightContainer {
-    background-color: #FFEC9E;
+    background-color: #ffec9e;
 }
 
 .darkContainer {
@@ -276,18 +276,18 @@ h1 {
 }
 
 .svgLight {
-    fill: #092635;
+    fill: #003b58;
 }
 
 .svgDark {
-    fill: #9EC8B9;
+    fill: #ffec9e;
 }
 
 .choiceIcon {
     flex: 1 1 auto;
     height: 70%;
     width: 70%;
-    filter: contrast(10%) brightness(100%);
+    filter: contrast(50%) brightness(100%);
 }
 
 
@@ -343,26 +343,31 @@ footer {
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #313d50;
+    /* background-color: #313d50; */
+    background-color: #111720;
+    color: #F5E8C7; 
     padding: calc(1vw + 1vh);  
     width: 20vw;
     min-width: 200px;
     max-width: 300px;
     aspect-ratio: 5/3;
     border-radius: calc(0.5vh + 1vw);
-    box-shadow: 7px 7px 3px #313d5066;
+    box-shadow: 1px 2px 12px #232b3a;
     font-size:  30px;
     font-weight: 500;
 }
 
+
 #gameOverText {
     padding: 5%;
+    font-weight: 900;
 }
 
-#gameOverModalButton {
+.gameOverModal > button {
     height: 30%;
     width: 30%;
-    background-color: rgb(129, 211, 238);
+    background-color: #F5E8C7;
+    color: #111720;
     border-radius: calc(0.25vh + 0.5vw);
     box-shadow: 1px 2px 4px #232323;
     font-size: 20px;
@@ -371,16 +376,37 @@ footer {
     transition: box-shadow 0.3s background-color 0.3s;
 }
 
-#gameOverModalButton:hover {
-    background-color: rgb(125, 213, 243);
-    box-shadow: 3px 5px 4px #232323;
+.gameOverModal > button:hover {
+    background-color: #e9e4d9;
+    box-shadow: 2px 4px 3px #232323;
     transition: 0.3s;
 }
 
-#gameOverModalButton:active {
-    background-color: rgb(110, 186, 211);
+.gameOverModal > button:active {
+    background-color: #dbcba1;
     box-shadow: 0px 1px 2px #232323;
     transition: 0.3s;
+}
+
+.gameOverModal.modalDark {
+    background-color: #ffec9e;
+    color: #1d1c3b;
+    box-shadow: 1px 2px 12px #08070f;  
+}
+
+.gameOverModal.modalDark > button {
+    background-color: #1B1A55;
+    color: #F5E8C7;
+}
+
+.gameOverModal.modalDark > button:hover {
+    background-color: #27266b;
+    color: #F5E8C7;
+}
+
+.gameOverModal.modalDark > button:active {
+    background-color: #141344;
+    color: #F5E8C7;
 }
 
 .displayCard {
